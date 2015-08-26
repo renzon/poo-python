@@ -1,6 +1,7 @@
 class Pessoa():
     OLHOS = 2
     def __init__(self, nome):
+        print('Iniciando __init__ de Pessoa')
         self.nome=nome
 
     def cumprimentar(this):
