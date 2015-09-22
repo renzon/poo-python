@@ -24,12 +24,21 @@ def soma_quadrados(n):
         if ultimo == n:
             return [n]
         else:
-            lista=[ultimo]
-            n-=ultimo
-            lista.extend(soma_quadrados(n))
-            return lista
-
+            lista_escolhida = gerar_solucao(menores, n)
+            while menores:
+                lista_escolhida_2 =gerar_solucao(menores, n)
+                if len(lista_escolhida_2)<len(lista_escolhida):
+                    lista_escolhida=lista_escolhida_2
+            return lista_escolhida
     return[0]
+
+
+def gerar_solucao(menores, n):
+    ultimo = menores.pop()
+    lista_escolhida = [ultimo]
+    lista_escolhida.extend(soma_quadrados(n - ultimo))
+    return lista_escolhida
+
 
 assert [0] == soma_quadrados(0)
 assert [1] == soma_quadrados(1)

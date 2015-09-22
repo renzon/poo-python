@@ -17,7 +17,7 @@ class Calculadora():
         self.arg1 = None
         self.arg2 = None
         self.sinal = None
-        self.operacoes = {}
+        self.__operacoes = {}
         soma = Soma()
         self.adicionar_operacao('+',soma)
         subtracao = Subtracao()
@@ -28,11 +28,11 @@ class Calculadora():
 
     def calcular_resultado(self):
         self.obter_inputs()
-        operacao_selecionada=self.operacoes[self.sinal]
+        operacao_selecionada=self.__operacoes[self.sinal]
         return operacao_selecionada.calcular(self.arg1, self.arg2)
 
     def adicionar_operacao(self, sinal, operacao):
-        self.operacoes[sinal]=operacao
+        self.__operacoes[sinal]=operacao
 
 
 class CalculadoraInfixa(Calculadora):
@@ -43,4 +43,6 @@ class CalculadoraInfixa(Calculadora):
 
 
 calculadora=CalculadoraInfixa()
-print(calculadora.calcular_resultado())
+# print(calculadora.calcular_resultado())
+print(dir(calculadora))
+print(calculadora._Calculadora__operacoes)
