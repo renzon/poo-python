@@ -7,6 +7,15 @@ class Pessoa():
     def cumprimentar(this):
         return 'Olá, meu nome é %s'%this.nome
 
+    def __eq__(self, other):
+        return self.nome == other.nome
+
+    def __hash__(self):
+        return hash(self.nome)
+
+    def __repr__(self):
+        return 'Pessoa(%s)'%self.nome
+
 pessoa = Pessoa('Renzo')
 denis = Pessoa('Denis')
 
